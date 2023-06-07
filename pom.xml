@@ -3,23 +3,10 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>se.arbetsformedlingen.ciam.migrering</groupId>
+    <groupId>se.hakuseki.ciam.migrering</groupId>
     <artifactId>ciam-migration-application</artifactId>
     <version>3.0.0</version>
     <inceptionYear>2023</inceptionYear>
-    <developers>
-        <developer>
-            <id>anrul</id>
-            <name>Mikael Andersson Wigander</name>
-            <email>mikael.andersson-wigander@arbetsformedlingen.se</email>
-            <organization>Arbetsförmedlingen</organization>
-            <roles>
-                <role>consultant</role>
-                <role>developer</role>
-            </roles>
-            <timezone>Europe/Stockholm</timezone>
-        </developer>
-    </developers>
     <properties>
         <compiler-plugin.version>3.11.0</compiler-plugin.version>
         <maven.compiler.release>17</maven.compiler.release>
@@ -27,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.0.4.Final</quarkus.platform.version>
+        <quarkus.platform.version>3.1.0.Final</quarkus.platform.version>
         <skipITs>false</skipITs>
         <surefire-plugin.version>3.0.0</surefire-plugin.version>
     </properties>
@@ -75,41 +62,11 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-openapi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-kubernetes-config</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-elytron-security-properties-file</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-health</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-reactive-jaxb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-test-security</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -252,32 +209,4 @@
             </properties>
         </profile>
     </profiles>
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <name>af release repository</name>
-            <url>http://nexus.arbetsformedlingen.se/repository/maven-releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <name>af snapshot repository</name>
-            <url>http://nexus.arbetsformedlingen.se/repository/maven-snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>maven-public</id>
-            <name>AF Public Repo</name>
-            <url>http://nexus.arbetsformedlingen.se/repository/maven-public/</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>maven-public</id>
-            <name>AF Public Repo</name>
-            <url>http://nexus.arbetsformedlingen.se/repository/maven-public/</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
