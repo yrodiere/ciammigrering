@@ -1,0 +1,9 @@
+= Small demo of bug in Quarkus
+
+== Introduction
+
+RestEasy/Panache Reactive unable to find records in database using the IN operator.
+
+When using the IN operator no records found.
+
+Check `fetch.http` for reference of calls
