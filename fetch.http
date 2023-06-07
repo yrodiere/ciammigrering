@@ -1,0 +1,60 @@
+### Not logged in
+GET {{host}}/api/migrate?pnr=101010-1010
+
+### Fetch a user personNumber and migrate
+GET {{host}}/api/migrate?pnr=101010-1010
+Authorization: Basic {{user}} {{password}}
+
+### Fetch a userid and migrate
+GET {{host}}/api/migrate?userid=räksmörgås&password=Abcd1234
+Authorization: Basic {{user}} {{password}}
+
+### Fetch an already migrated user
+GET {{host}}/api/migrate?pnr=19791231-2452
+Authorization: Basic {{user}} {{password}}
+
+### Not found user
+GET {{host}}/api/migrate?pnr=1234567890
+Authorization: Basic {{user}} {{password}}
+
+### Not found user
+GET {{host}}/api/migrate?userid=räksmörgås&password=whatever
+Authorization: Basic {{user}} {{password}}
+
+### Patch a user
+GET {{host}}/api/patch?id=151
+Authorization: Basic {{user}} {{password}}
+
+### Fetch data for a user
+GET {{host}}/api/201
+Authorization: Basic {{user}} {{password}}
+
+### Fetch data for a customerId
+GET {{host}}/api/customerId?customerId=1
+Authorization: Basic {{user}} {{password}}
+
+### Fetch data for a list of customerIds
+GET {{host}}/api/customerId/multi?customerId=1,2,3
+Authorization: Basic {{user}} {{password}}
+
+### Close Circuit breakers
+GET {{host}}/maintenance
+
+### Get Swagger documentation
+GET {{host}}/q/openapi
+Accept: application/json
+
+### Fetch metrics
+GET {{host}}/q/metrics
+
+### Fetch health
+GET {{host}}/q/health
+Accept: application/json
+
+### Fetch health Liveness
+GET {{host}}/q/health/live
+Accept: application/json
+
+### Fetch health Readness
+GET {{host}}/q/health/ready
+Accept: application/json
