@@ -1,18 +1,22 @@
 package se.hakuseki.ciam.migration;
 
-import io.quarkus.hibernate.reactive.panache.PanacheEntity;
-import io.quarkus.panache.common.Parameters;
-import io.quarkus.runtime.annotations.RegisterForReflection;
-import io.smallrye.mutiny.Uni;
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.panache.common.Parameters;
+import io.quarkus.runtime.annotations.RegisterForReflection;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.QueryHint;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 // tag::Accounts[]
 
@@ -115,7 +119,7 @@ public class Accounts extends PanacheEntity {
      * @param customerId the customer id
      * @return the uni
      */
-    public static Uni<Accounts> findByCustomerId(String customerId) {
+    public static Accounts findByCustomerId(String customerId) {
         return find("#Accounts.getByCustomerId", customerId).singleResult();
     }
 
@@ -125,7 +129,7 @@ public class Accounts extends PanacheEntity {
      * @param customerId the customer id
      * @return the uni
      */
-    public static Uni<List<Accounts>> findByCustomerId(List<String> customerId) {
+    public static List<Accounts> findByCustomerId(List<String> customerId) {
         return find("agasCustomerNumber in :vals ", Parameters.with("vals", customerId)).list();
     }
 }

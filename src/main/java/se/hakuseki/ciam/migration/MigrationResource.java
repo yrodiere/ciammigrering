@@ -31,7 +31,7 @@ public class MigrationResource {
     @GET
     @Path("/customerId")
     @Produces(MediaType.APPLICATION_XML)
-    public Uni<Accounts> findByCustomerId(@RestQuery String customerId) {
+    public Accounts findByCustomerId(@RestQuery String customerId) {
         return Accounts.findByCustomerId(customerId);
     }
 
@@ -45,7 +45,7 @@ public class MigrationResource {
     @Path("/customerId/multi")
     @Produces(MediaType.APPLICATION_XML)
     @Consumes(MediaType.TEXT_PLAIN)
-    public Uni<List<Accounts>> findByCustomerId(@RestQuery @Separator(",") List<String> customerId) {
+    public List<Accounts> findByCustomerId(@RestQuery @Separator(",") List<String> customerId) {
         return Accounts.findByCustomerId(customerId);
     }
 
