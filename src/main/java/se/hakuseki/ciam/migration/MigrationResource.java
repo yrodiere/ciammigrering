@@ -45,8 +45,8 @@ public class MigrationResource {
     @Path("/customerId/multi")
     @Produces(MediaType.APPLICATION_XML)
     @Consumes(MediaType.TEXT_PLAIN)
-    public Uni<List<Accounts>> findByCustomerId(@RestQuery @Separator(",") List<String> customerId) {
-        return Accounts.findByCustomerId(customerId);
+    public Uni<Accounts[]> findByCustomerId(@RestQuery @Separator(",") List<String> customerId) {
+        return Accounts.findByCustomerId( customerId ).onItem().transform( list -> list.toArray( Accounts[]::new ) );
     }
 
 }
